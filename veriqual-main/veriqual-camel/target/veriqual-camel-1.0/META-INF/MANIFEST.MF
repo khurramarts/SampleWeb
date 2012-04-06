@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Dependencies: org.osgi.core, org.apache.cxf, org.springframework.spring, org.hibernate, org.hibernate.validator
+

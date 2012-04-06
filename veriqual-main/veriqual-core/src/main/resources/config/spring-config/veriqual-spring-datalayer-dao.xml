@@ -1,0 +1,22 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"	
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">	
+
+	
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+	    <property name="dataSource" ref="dataSource"/>
+	    <property name="nestedTransactionAllowed" value="true" />
+	    <property name="validateExistingTransaction" value="true" />
+    </bean>
+    
+    <bean id="baseMapper" class="org.mybatis.spring.mapper.MapperFactoryBean" abstract="true" lazy-init="true">
+      <property name="sqlSessionFactory" ref="sqlSessionFactory" />
+    </bean>
+	
+	<bean id="accountMapper" parent="baseMapper">
+	  <property name="mapperInterface" value="com.veriqual.dao.mybatis.AccountMapper" />	  
+	</bean>		
+
+</beans>
+
