@@ -50,8 +50,6 @@
     </plugins>
   </reporting>
 
-
-
 	<repositories>
 		<repository>
 			<id>jboss</id>
