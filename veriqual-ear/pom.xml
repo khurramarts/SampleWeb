@@ -1,0 +1,133 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.veriqual.ear</groupId>
+  <artifactId>veriqual-ear</artifactId>
+  <version>1.0</version>
+  <packaging>ear</packaging>
+
+  <name>veriqual-ear</name>
+  <url>http://maven.apache.org</url>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<spring.version>3.0.6.RELEASE</spring.version>
+		<hibernate.version>4.0.1.Final</hibernate.version>
+		<cxf.version>2.4.6</cxf.version>
+		<aspectj.version>1.6.12</aspectj.version>
+	</properties>
+
+	<repositories>
+		<repository>
+			<id>jboss</id>
+			<url>https://repository.jboss.org/nexus/content/groups/public/</url>
+		</repository>
+	</repositories>
+
+  <dependencies>
+    <dependency>
+        <groupId>com.veriqual.ws</groupId>
+	<artifactId>veriqual-webapp</artifactId>
+        <version>1.0</version>
+        <type>war</type>
+    </dependency>
+    <dependency>
+        <groupId>com.veriqual.eip</groupId>
+	<artifactId>veriqual-camel</artifactId>
+	<version>1.0</version>
+        <type>war</type>
+    </dependency>  
+    <dependency>
+	<groupId>com.veriqual.rs</groupId>
+  	<artifactId>veriqual-rest</artifactId>
+	<version>1.0</version>
+	<type>war</type>
+    </dependency>  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>				
+ 
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <encoding>UTF-8</encoding>
+                </configuration>
+            </plugin>
+            <plugin>
+                <artifactId>maven-ear-plugin</artifactId>
+                <version>2.7</version>
+                <configuration>
+                    <modules>
+                        <webModule>
+                            <groupId>com.veriqual.ws</groupId>
+			    <artifactId>veriqual-webapp</artifactId>
+                            <bundleFileName>inventory.war</bundleFileName>
+                            <contextRoot>/inventory</contextRoot>
+                        </webModule>                        
+         	        <webModule>
+                           <groupId>com.veriqual.eip</groupId>
+	  		   <artifactId>veriqual-camel</artifactId>	
+                           <bundleFileName>inventory-eip.war</bundleFileName>
+                           <contextRoot>/inventory-eip</contextRoot>
+                        </webModule> 
+			<webModule>
+                            <groupId>com.veriqual.rs</groupId>
+			    <artifactId>veriqual-rest</artifactId>
+                           <bundleFileName>rest.war</bundleFileName>
+                           <contextRoot>/rest</contextRoot>
+
+                        </webModule>
+                    </modules>
+                </configuration>
+            </plugin>
+			<plugin>
+				<groupId>org.codehaus.cargo</groupId>
+				<artifactId>cargo-maven2-plugin</artifactId>
+				<version>1.1.2</version>
+				<configuration>
+					<wait>true</wait>
+					<container>
+						<containerId>jboss7x</containerId>
+						<home>/var/development/jboss-as-7.1.0.Final/</home>
+					</container>
+					<configuration>
+						<type>existing</type>
+						<home>/var/development/jboss-as-7.1.0.Final/standalone</home>
+					</configuration>					
+				</configuration>
+			</plugin>
+		</plugins>
+		<finalName>inventory</finalName>
+	</build>
+	
+   <!--  mvn ear:generate-application-xml      mvn ear:ear  -->
+	
+
+</project>

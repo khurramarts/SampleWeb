@@ -1,0 +1,81 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.veriqual.rs</groupId>
+  <artifactId>veriqual-rest</artifactId>
+  <version>1.0</version>
+  <packaging>war</packaging>
+
+  <name>veriqual-rest</name>
+ <url>http://www.veriqual.com</url>
+
+ <properties>
+    <version.org.jboss.arquillian.core>1.0.0.CR4</version.org.jboss.arquillian.core>
+    <version.org.jboss.as7>7.1.0.Final</version.org.jboss.as7>
+    <version.org.jboss.logging>3.0.0.GA</version.org.jboss.logging>
+    <version.org.jboss.logmanager>1.2.0.GA</version.org.jboss.logmanager>
+    <version.org.jboss.resteasy.jaxrs>2.2.1.GA</version.org.jboss.resteasy.jaxrs>
+    <version.org.jboss.resteasy.mobile>1.0.0</version.org.jboss.resteasy.mobile>
+    <version.org.jboss.spec.javax.jms>1.0.0.Final</version.org.jboss.spec.javax.jms>
+    <version.org.projectodd.stilts>0.1.15-SNAPSHOT</version.org.projectodd.stilts>
+    <version.junit>4.8.2</version.junit>
+  </properties>
+	
+ <!-- Repositories -->
+  <repositories>
+    <repository>
+      <id>jboss-public-repository-group</id>
+      <name>JBoss Public Repository Group</name>
+      <url>http://repository.jboss.org/nexus/content/groups/public/</url>
+      <layout>default</layout>
+      <releases>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>never</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+  
+   <!-- Dependencies -->
+  <dependencies>
+    <dependency>
+      <groupId>org.jboss.resteasy</groupId>
+      <artifactId>resteasy-jaxrs</artifactId>
+      <version>${version.org.jboss.resteasy.jaxrs}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.jboss.logging</groupId>
+      <artifactId>jboss-logging</artifactId>
+      <version>${version.org.jboss.logging}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+ 
+  <build>
+		<defaultGoal>install</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>2.3.2</version>
+				<configuration>
+					<source>1.6</source>
+					<target>1.6</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>2.2</version>				
+			</plugin>			
+		</plugins>
+	  <finalName>rest</finalName>
+	</build>
+  
+</project>

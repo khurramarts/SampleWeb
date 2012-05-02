@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<account>
+	<addr1>addr1</addr1>
+	<addr2>addr2</addr2>
+	<city>Lahore</city>
+	<country>country</country>
+	<email>mukhtiar.ahmed@gmail.com</email>
+	<firstname>Mukhtiar</firstname>
+	<lastname>Ahmed</lastname>
+	<phone>23432423</phone>
+	<state>Punjab</state>
+	<status>Y</status>
+	<userid>0</userid>
+	<zip>54000</zip>
+</account>
