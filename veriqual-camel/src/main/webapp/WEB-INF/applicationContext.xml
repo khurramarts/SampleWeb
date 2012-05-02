@@ -37,7 +37,7 @@
             </transform>      
 		 <process ref="createSOAPMessageProcessor" />	
 		 <to uri="log:SOAPRequest" />	
-         <to uri="http://127.0.0.1:8080/inventory/AccountWSImpl" /> 
+         <to uri="http://127.0.0.1:8181/inventory/AccountWSImpl" /> 
          <to uri="log:SOAPResponse" />         
        </route>
     </camelContext>     -->
@@ -46,10 +46,10 @@
     <camelContext xmlns="http://camel.apache.org/schema/spring">
        <route id="sample-restservice">      	
        	 <from uri="timer://foo?fixedRate=true&amp;period=300s&amp;delay=300s" />        
-       	 <to uri="http://127.0.0.1:8080/rest/account/1" />       	
+       	 <to uri="http://127.0.0.1:8181/rest/account/1" />       	
 		 <process ref="createRestMessageProcessor" />	
 		 <to uri="log:SOAPRequest" />	
-         <to uri="http://127.0.0.1:8080/inventory/AccountWSImpl" /> 
+         <to uri="http://127.0.0.1:8181/inventory/AccountWSImpl" /> 
          <to uri="log:SOAPResponse" />         
        </route>
     </camelContext>
