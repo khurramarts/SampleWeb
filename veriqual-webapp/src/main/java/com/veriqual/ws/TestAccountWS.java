@@ -1,6 +1,7 @@
 package com.veriqual.ws;
 
 import java.net.URL;
+import java.util.Iterator;
 import java.util.List;
 
 import javax.xml.namespace.QName;
@@ -13,11 +14,18 @@ public class TestAccountWS {
 
 	//JAX-WS Proxy client
 public static void main(String[] args) throws Exception {
-		
+		// http://69.33.0.202:8181/inventory/
 		URL wsdlURL = new URL("http://localhost:8080/inventory/AccountWSImpl?wsdl");
 		QName SERVICE_NAME = new QName("http://ws.veriqual.com/", "AccountWSImplService");
-		Service service = Service.create(wsdlURL, SERVICE_NAME);
+		Service service = Service.create(wsdlURL, SERVICE_NAME);		
+		
+		
+		
+		
+		
 		AccountWS accountWS = service.getPort(AccountWS.class);
+		System.out.println(accountWS.getClass());		
+		
 		Account account = new Account ();
 		account.setFirstname("Mukhtiar");
 		account.setLastname("Ahmed");
@@ -30,6 +38,7 @@ public static void main(String[] args) throws Exception {
 		account.setState("Punjab");
 		account.setStatus("Y");
 		account.setZip("3434");
+
 		
 		Integer accountId = accountWS.createAccount(account);		
 		System.out.println("accountId : " + accountId);	
@@ -48,8 +57,8 @@ public static void main(String[] args) throws Exception {
 			System.out.println("email : " + a.getEmail());
 		}		
 		
-		accountWS.updateAccount(account);
 		
+		accountWS.updateAccount(account);		
 		accountWS.deleteAccount(account);
 		
 	
