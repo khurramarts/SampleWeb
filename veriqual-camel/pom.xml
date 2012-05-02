@@ -43,16 +43,28 @@
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-spring</artifactId>
 			<version>2.9.0</version>
+			<exclusions>
+		    <exclusion>
+		      <groupId>org.springframework</groupId>
+		      <artifactId>*</artifactId>
+		    </exclusion>
+		  </exclusions>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-stream</artifactId>
 			<version>2.9.0</version>
-		</dependency>
+		</dependency>	
 		<dependency>
 			<groupId>org.apache.camel</groupId>
 			<artifactId>camel-cxf</artifactId>
 			<version>2.9.0</version>
+			<exclusions>
+		    <exclusion>
+		      <groupId>org.apache.cxf</groupId>
+		      <artifactId>*</artifactId>
+		    </exclusion>
+		  </exclusions>
 		</dependency>
 		<dependency>
 		    <groupId>org.apache.camel</groupId>
@@ -115,7 +127,7 @@
 				<configuration>
 					<archive>
 						<manifestEntries>
-							<Dependencies>org.osgi.core</Dependencies>
+							<Dependencies>org.osgi.core, org.apache.cxf, org.springframework.spring</Dependencies>
 						</manifestEntries>
 					</archive>
 				</configuration>
@@ -125,3 +137,4 @@
 	</build>
 
 </project>
+
