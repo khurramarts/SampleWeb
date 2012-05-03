@@ -21,12 +21,12 @@
     <bean id="accountBean" class="com.veriqual.ws.AccountBean" /> 
  
     <!-- JAX-WS Service Endpoint -->    
-    <jaxws:endpoint id="accountWebService" implementor="#accountWS" address="http://127.0.0.1:8080/inventory/AccountWSImpl" />       
+    <jaxws:endpoint id="accountWebService" implementor="#accountWS" address="http://127.0.0.1:8181/inventory/AccountWSImpl" />       
 
  <!-- 
  	<camelContext xmlns="http://camel.apache.org/schema/spring">
        <route>
-         <from uri="cxf:address:http://127.0.0.1:8080/inventory/AccountWSImpl?wsdl" />
+         <from uri="cxf:address:http://127.0.0.1:8181/inventory/AccountWSImpl?wsdl" />
          <to uri="bean:accountBean?method=message" />
        </route>
     </camelContext>  -->  
