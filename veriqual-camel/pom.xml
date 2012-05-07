@@ -25,11 +25,23 @@
 			<groupId>com.veriqual.core</groupId>
 			<artifactId>veriqual-core</artifactId>
 			<version>1.0</version>
+			<exclusions>
+			    <exclusion>
+			      <groupId>org.springframework</groupId>
+			      <artifactId>*</artifactId>
+			    </exclusion>
+    		        </exclusions>	
 		</dependency>
 		<dependency>
 			<groupId>com.veriqual.service</groupId>
 			<artifactId>veriqual-service</artifactId>
 			<version>1.0</version>
+			<exclusions>
+			    <exclusion>
+			      <groupId>org.springframework</groupId>
+			      <artifactId>*</artifactId>
+			    </exclusion>
+    		        </exclusions>	
 		</dependency>
 
 
@@ -92,7 +104,6 @@
 			    </exclusion>
     		        </exclusions>	
 		</dependency>	-->	
-
 
 		<!-- logging -->
 		<dependency>
