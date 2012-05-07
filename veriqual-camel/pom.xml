@@ -32,7 +32,6 @@
 			<version>1.0</version>
 		</dependency>
 
-
 		<!-- Camel Dependencies -->
 		<dependency>
 			<groupId>org.apache.camel</groupId>
